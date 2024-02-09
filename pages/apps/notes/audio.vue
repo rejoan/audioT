@@ -55,6 +55,7 @@
           self.resText = response.data;
         })
         .catch(function(fail){
+          self.loading = false;
           console.log(fail);
         });
       },
@@ -79,6 +80,7 @@
           self.soapNote = response.data.choices[0].message.content;
         })
         .catch(function(fail){
+          self.loading = false;
           console.log(fail);
         });
       },
