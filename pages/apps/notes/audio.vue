@@ -45,7 +45,7 @@
 
         const headers = {
           'Content-Type': 'multipart/form-data',
-          'Authorization': 'Bearer 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'
+          'Authorization': 'Bearer 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'
         }
         await axios
           .post("https://api.openai.com/v1/audio/transcriptions", formData, {
@@ -70,7 +70,7 @@
 
         const headers = {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer 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'
+          'Authorization': 'Bearer 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'
         }
         axios
           .post("https://api.openai.com/v1/chat/completions", JSON.stringify(jsonObj), {
