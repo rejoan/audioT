@@ -54,8 +54,8 @@
             self.loading = false;
           self.resText = response.data;
         })
-        .catch(function(){
-          console.log('FAILURE!!');
+        .catch(function(fail){
+          console.log(fail);
         });
       },
       
