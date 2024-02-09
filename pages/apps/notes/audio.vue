@@ -34,8 +34,6 @@
    methods: {
       handleFileUpload(event) {
         this.file = event.target.files[0];
-        const config = useRuntimeConfig();
-        console.log(config.public.OIKEY);
       },
       async handleSubmit() {
         const config = useRuntimeConfig();
