@@ -34,8 +34,11 @@
    methods: {
       handleFileUpload(event) {
         this.file = event.target.files[0];
+        const config = useRuntimeConfig();
+        console.log(config.public.OIKEY);
       },
       async handleSubmit() {
+        const config = useRuntimeConfig();
         let self = this;
         self.loading = true;
         const formData = new FormData();
@@ -45,7 +48,7 @@
 
         const headers = {
           'Content-Type': 'multipart/form-data',
-          'Authorization': 'Bearer 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'
+          'Authorization': 'Bearer '+config.public.OIKEY
         }
         await axios
           .post("https://api.openai.com/v1/audio/transcriptions", formData, {
@@ -67,10 +70,12 @@
           model: 'gpt-3.5-turbo',
           messages: [{"role":"user", "content":'write a soap note based on '+self.resText}]
         };
+        
+        const config = useRuntimeConfig();
 
         const headers = {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer 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'
+          'Authorization': 'Bearer '+config.public.OIKEY
         }
         axios
           .post("https://api.openai.com/v1/chat/completions", JSON.stringify(jsonObj), {

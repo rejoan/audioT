@@ -10,7 +10,11 @@ export default defineNuxtConfig({
   typescript: {
     shim: false,
   },
-
+  runtimeConfig: {
+    public: {
+      OIKEY: process.env.OPEN_KEY_API,
+    }
+  },
   vite: {
     ssr: {
       noExternal: ["vuetify"], // add the vuetify vite plugin
